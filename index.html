@@ -1,0 +1,144 @@
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masud Hossain | Digital Marketer & Growth Specialist</title>
+    <meta name="description" content="Professional portfolio of Masud Hossain, a results-driven Digital Marketer specializing in Facebook Ads, Google Ads, and SEO.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Icons & Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- React & Babel for GitHub Pages Compatibility -->
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #0a0f1d; color: #f1f5f9; }
+        .bg-grid { background-image: radial-gradient(#1e293b 1px, transparent 1px); background-size: 40px 40px; }
+        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.05); }
+        .gradient-text { background: linear-gradient(to right, #3b82f6, #60a5fa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .animate-fade { animation: fadeIn 0.8s ease-out forwards; }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+
+        const SERVICES = [
+          { id: '1', title: 'Facebook Ads', desc: 'Precision-targeted ad campaigns designed to maximize ROAS.', icon: 'fa-brands fa-facebook-f' },
+          { id: '2', title: 'Google Ads', desc: 'Strategic PPC campaigns targeting high-intent customers.', icon: 'fa-brands fa-google' },
+          { id: '3', title: 'SEO Optimization', desc: 'Technical SEO to drive consistent organic traffic growth.', icon: 'fa-solid fa-magnifying-glass-chart' },
+          { id: '4', title: 'Lead Generation', desc: 'High-converting funnels to capture quality B2B leads.', icon: 'fa-solid fa-filter' },
+          { id: '5', title: 'Email Marketing', desc: 'Automated sequences that turn subscribers into buyers.', icon: 'fa-solid fa-envelope-open-text' },
+          { id: '6', title: 'CRO Strategy', desc: 'Optimizing landing pages for maximum conversion rates.', icon: 'fa-solid fa-chart-line' }
+        ];
+
+        const Nav = () => {
+          const [scrolled, setScrolled] = useState(false);
+          useEffect(() => {
+            window.onscroll = () => setScrolled(window.scrollY > 20);
+          }, []);
+
+          return (
+            <nav className={`fixed top-0 w-full z-50 transition-all ${scrolled ? 'bg-[#0a0f1d]/90 backdrop-blur-md py-4' : 'bg-transparent py-6'}`}>
+              <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
+                <div className="text-xl font-bold tracking-tighter">MASUD<span className="text-blue-500">HOSSAIN</span></div>
+                <div className="hidden md:flex space-x-8 text-sm text-slate-400">
+                  <a href="#about" className="hover:text-white">About</a>
+                  <a href="#services" className="hover:text-white">Services</a>
+                  <a href="#contact" className="bg-blue-600 text-white px-5 py-2 rounded-full font-bold">Hire Me</a>
+                </div>
+              </div>
+            </nav>
+          );
+        };
+
+        const Hero = () => (
+          <section className="min-h-screen flex items-center bg-grid px-6 pt-20">
+            <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+              <div className="animate-fade">
+                <span className="text-blue-500 font-bold tracking-widest text-xs uppercase mb-4 block">Bangladesh-Based / Global Reach</span>
+                <h1 className="text-5xl md:text-7xl font-extrabold mb-6 leading-tight">Scaling Brands with <span className="gradient-text">Results</span></h1>
+                <p className="text-slate-400 text-lg mb-10 max-w-md">I help startups and small businesses grow their revenue through data-backed digital marketing strategies.</p>
+                <div className="flex gap-4">
+                  <a href="#contact" className="bg-blue-600 px-8 py-4 rounded-lg font-bold shadow-lg shadow-blue-500/20">Get Started</a>
+                  <a href="#services" className="border border-slate-700 px-8 py-4 rounded-lg font-bold">My Services</a>
+                </div>
+              </div>
+              <div className="hidden md:block">
+                <img src="https://picsum.photos/seed/masud/600/600" className="rounded-2xl grayscale hover:grayscale-0 transition-all border border-slate-800" alt="Masud" />
+              </div>
+            </div>
+          </section>
+        );
+
+        const ServiceSection = () => (
+          <section id="services" className="py-24 px-6 max-w-7xl mx-auto">
+            <h2 className="text-3xl font-bold mb-16 text-center">Premium Marketing Services</h2>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+              {SERVICES.map(s => (
+                <div key={s.id} className="glass p-8 rounded-2xl hover:-translate-y-2 transition-transform">
+                  <div className="w-12 h-12 bg-blue-500/10 rounded-lg flex items-center justify-center mb-6 text-blue-500">
+                    <i className={s.icon}></i>
+                  </div>
+                  <h3 className="text-xl font-bold mb-3">{s.title}</h3>
+                  <p className="text-slate-500 text-sm leading-relaxed">{s.desc}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        );
+
+        const Contact = () => (
+          <section id="contact" className="py-24 px-6 bg-[#0d1324]">
+            <div className="max-w-xl mx-auto text-center">
+              <h2 className="text-4xl font-bold mb-6">Let's Work Together</h2>
+              <p className="text-slate-400 mb-12">Ready to take your brand to the next level? Send a message below.</p>
+              <form className="space-y-4" onSubmit={e => e.preventDefault()}>
+                <input className="w-full bg-slate-800/50 border border-slate-700 p-4 rounded-lg outline-none focus:border-blue-500" placeholder="Your Name" />
+                <input className="w-full bg-slate-800/50 border border-slate-700 p-4 rounded-lg outline-none focus:border-blue-500" placeholder="Your Email" />
+                <textarea className="w-full bg-slate-800/50 border border-slate-700 p-4 rounded-lg outline-none focus:border-blue-500 h-32" placeholder="Tell me about your project..."></textarea>
+                <button className="w-full bg-blue-600 py-4 rounded-lg font-bold">Send Message</button>
+              </form>
+            </div>
+          </section>
+        );
+
+        const App = () => (
+          <div>
+            <Nav />
+            <Hero />
+            <ServiceSection />
+            <Contact />
+            <footer className="py-12 text-center text-slate-600 border-t border-slate-800">
+              <p>© 2024 Masud Hossain. Built for Results.</p>
+            </footer>
+          </div>
+        );
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
